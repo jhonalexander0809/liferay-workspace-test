@@ -11,6 +11,8 @@ pipeline {
                     chmod +x gradlew
                     rm -f gradle.zip
                     rm -rf gradle-4.10.2
+                    ls
+                    mvn -v
                 """
             }
         }
