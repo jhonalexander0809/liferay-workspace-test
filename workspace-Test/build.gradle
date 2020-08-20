@@ -1,0 +1,47 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'signing'
+
+	buildscript {
+		repositories {
+			mavenLocal()
+			maven {
+				credentials {
+					username = "${nexusUsername}"
+					password = "${nexusPassword}"
+				}
+				url "${nexusUrl}/maven-liferay-group/"
+				authentication {
+					basic(BasicAuthentication)
+				}
+			}
+		}
+	}
+	
+	repositories {
+		mavenLocal()
+		maven {
+			credentials {
+				username = "${nexusUsername}"
+				password = "${nexusPassword}"
+			}
+			url "${nexusUrl}/maven-liferay-group/"
+			authentication {
+				basic(BasicAuthentication)
+			}
+		}
+	}
+	
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "${nexusUrl}/maven-liferay-hosted/") {
+                    authentication(userName: "${nexusUsername}", password: "${nexusPassword}");
+                }
+            }
+        }
+    }
+
+	group 'co.com.periferia'
+}

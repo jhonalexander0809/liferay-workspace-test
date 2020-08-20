@@ -1,14 +1,22 @@
 buildscript {
-	dependencies {
-		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "2.0.4"
-		classpath group: "net.saliman", name: "gradle-properties-plugin", version: "1.4.6"
-	}
+    dependencies {
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "2.0.4"
+        classpath group: "net.saliman", name: "gradle-properties-plugin", version: "1.4.6"
+    }
 
-	repositories {
-		maven {
-			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
-		}
-	}
+    repositories {
+        mavenLocal()
+        maven {
+            credentials {
+                username = "${nexusUsername}"
+                password = "${nexusPassword}"
+            }
+            url "${nexusUrl}/maven-liferay-group/"
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
 }
 
 apply plugin: "net.saliman.properties"
