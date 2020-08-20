@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'gradle:4.10.2' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'gradle -v'
+                sh 'pwd'
             }
         }
     }
