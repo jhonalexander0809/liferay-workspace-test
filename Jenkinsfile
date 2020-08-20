@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Download gradle') {
+        /*stage('Download gradle') {
             steps {
                 sh """
                     cd workspace-Test
@@ -16,7 +16,7 @@ pipeline {
                     ls
                 """
             }
-        }
+        }*/
         stage('Build') {
             steps {
                 sh "cd workspace-Test && ./gradle clean build"
