@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        gradle "4.10.2"
-    }
     stages {
         stage('Download gradle') {
             steps {
@@ -17,13 +14,12 @@ pipeline {
                     rm -f gradle.zip
                     rm -rf gradle-4.10.2
                     ls
-                    mvn -v
                 """
             }
         }
         stage('Build') {
             steps {
-                sh "cd workspace-Test && ./gradlew clean build"
+                sh "cd workspace-Test && ./gradle clean build"
             }
         }
     }
