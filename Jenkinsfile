@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "cd workspace-Test && ${WORKSPACE}/gradlew clean build"
+                sh "cd workspace-Test && ./gradlew clean build"
             }
         }
     }
