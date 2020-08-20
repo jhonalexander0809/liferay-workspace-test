@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle "4.10.2"
+    }
     stages {
         stage('Download gradle') {
             steps {
@@ -8,8 +11,9 @@ pipeline {
                     curl https://downloads.gradle-dn.com/distributions/gradle-4.10.2-bin.zip --output gradle.zip
                     unzip gradle.zip
                     ./gradle-4.10.2/bin/gradle wrapper
-                    ./gradlew -v
-                    chmod +x gradlew
+                    mv ./gradle-4.10.2/bin/* ./*
+                    ./gradle -v
+                    chmod +x gradle
                     rm -f gradle.zip
                     rm -rf gradle-4.10.2
                     ls
