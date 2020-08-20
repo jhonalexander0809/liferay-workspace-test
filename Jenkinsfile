@@ -8,6 +8,7 @@ pipeline {
                     unzip gradle.zip
                     ./gradle-4.10.2/bin/gradle wrapper
                     ./gradlew -v
+                    chmod +x gradlew
                     rm -f gradle.zip
                     rm -rf gradle-4.10.2
                 """
@@ -15,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "cd workspace-Test && ./gradlew clean build"
+                sh "cd workspace-Test && ${WORKSPACE}/gradlew clean build"
             }
         }
     }
