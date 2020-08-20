@@ -19,7 +19,7 @@ pipeline {
         }*/
         stage('Build') {
             steps {
-                sh "cd workspace-Test && ./gradle clean build"
+                sh "cd workspace-Test && chmod +x gradlew && ./gradlew clean build"
             }
         }
     }
