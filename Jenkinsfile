@@ -4,6 +4,7 @@ pipeline {
         stage('Download gradle') {
             steps {
                 sh """
+                    cd workspace-Test
                     curl https://downloads.gradle-dn.com/distributions/gradle-4.10.2-bin.zip --output gradle.zip
                     unzip gradle.zip
                     ./gradle-4.10.2/bin/gradle wrapper
