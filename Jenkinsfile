@@ -17,10 +17,22 @@ pipeline {
                 """
             }
         }
+        stage('Deploy') {
+            steps {
+                sh "Start deploy"
+                deploy("${WORKSPACE}")
+            }
+        }
     }
     post {
         always {
             deleteDir()
         }
     }
+}
+
+
+def deploy(workspace){
+    sh "cd ${workspace} && mkdir deploy"
+    sh "cp /workspace-Test/wars/test-Theme/build/libs/* ${workspace}/deploy"
 }
