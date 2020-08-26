@@ -12,9 +12,7 @@ pipeline {
         }
         stage('Publish Artifacts') {
             steps {
-                sh """
-                    cd workspace-Test && ./gradlew uploadArchives
-                """
+                sh "cd workspace-Test && ./gradlew uploadArchives"
             }
         }
         stage('Deploy') {
