@@ -25,7 +25,7 @@ pipeline {
                     docker exec -d liferay chmod 775 -R /opt/liferay/temp-deploy/
                     docker exec -d liferay rm -rf /opt/liferay/temp-deploy/*
                     docker cp $WORKSPACE/workspace-Test/wars/test-Theme/build/libs/*.war liferay:/opt/liferay/temp-deploy/
-                    docker exec -d liferay cp -r /opt/liferay/temp-deploy/*.war /opt/liferay/deploy/
+                    docker exec liferay bash -c 'cp -r /opt/liferay/temp-deploy/*.war /opt/liferay/deploy/'
                 """
             }
         }
