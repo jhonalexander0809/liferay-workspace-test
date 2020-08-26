@@ -19,8 +19,14 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "Start deploy"
-                deploy("${WORKSPACE}")
+                echo "Start deploy"
+                sh """
+                    docker exec -d liferay mkdir -p /opt/liferay/temp-deploy
+                    docker exec -d liferay chmod 775 -R /opt/liferay/temp-deploy/
+                    docker exec -d liferay rm -rf /opt/liferay/temp-deploy/*
+                    docker cp $WORKSPACE/workspace-Test/wars/test-Theme/build/libs/*.war liferay:/opt/liferay/temp-deploy/
+                    docker exec -d liferay cp -rp /opt/liferay/temp-deploy/* /opt/liferay/deploy/
+                """
             }
         }
     }
@@ -29,10 +35,4 @@ pipeline {
             deleteDir()
         }
     }
-}
-
-
-def deploy(workspace){
-    sh "cd ${workspace} && mkdir deploy"
-    sh "cp /workspace-Test/wars/test-Theme/build/libs/* ${workspace}/deploy"
 }
