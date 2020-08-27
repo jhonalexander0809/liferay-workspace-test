@@ -26,14 +26,14 @@ html {
                 .user-avatar .dropdown-menu, .admin-links .dropdown-menu, 
                 .dockbar-user-notifications .dropdown-menu, 
                 .my-sites .dropdown-menu, .sign-in a{
-                    background-color: $themeMainColor;  
+                    background-color: white;  
                 }
 
                 .user-avatar .dropdown-toggle, .admin-links 
                 .dropdown-toggle, .dockbar-user-notifications 
                 .dropdown-toggle, .my-sites .dropdown-toggle, 
                 .sign-in a{
-                    background-color: $themeMainColor;
+                    background-color: white;
                     &:hover{
                         background-color: #00C4FB;
                     }
@@ -44,7 +44,7 @@ html {
         .nav-add-controls{
                 #_145_addPanel, #_145_previewPanel, 
                 #_145_editLayoutPanel {
-                        background-color: $themeMainColor;
+                        background-color: white;
                         &:hover {
                                 background-color: #00C4FB;
                         }
@@ -155,7 +155,7 @@ html {
                         display: block;
                         padding: 0;
                         li {
-                            background-color: $themeMainColor;
+                            background-color: white;
                             &:hover {
                                 background-color: #00C4FB;
                             }
@@ -230,7 +230,7 @@ html {
             padding: 10px 0;
 
                 &:hover {
-                    background-color: $themeMainColor;
+                    background-color: white;
                 }
 
                 a {
@@ -255,7 +255,7 @@ html {
 /* ---------- Footer ---------- */
 
 footer{
-    background-color: $themeMainColor;
+    background-color: white;
     padding: 35px;
         .powered-by {
             color: #FFF;
