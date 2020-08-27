@@ -66,7 +66,7 @@ html {
 /* ---------- Wrapper ---------- */
 
 #wrapper {
-    background-color: $bkColor;
+    background-color: blue;
     margin: 0 auto;
     max-width: 1000px;
     padding:0;
@@ -75,7 +75,7 @@ html {
 /* ---------- Banner ---------- */
 
 #banner {
-    background-color: $bkColor;
+    background-color: blue;
 
     #heading {
         padding: 0 4%;
@@ -186,7 +186,7 @@ html {
 /* ---------- Content ---------- */
 
 #content {
-    background-color: $bkColor;
+    background-color: blue;
     padding: 0px 20px;
 
     /* ---------- Carousel ---------- */
@@ -204,7 +204,7 @@ html {
         font-size: 36px; 
         line-height: 60px;   
         text-align: center;
-        color: $themeMainColor;
+        color: white;
     }
 
     #columnRight {
